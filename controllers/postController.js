@@ -1,4 +1,5 @@
 const Post = require("../models/postModel");
+const ErrorHander = require("../utils/errorhander");
 
 //Create post -- Admin
 exports.createPost = async (req, res, next) => {
@@ -54,4 +55,15 @@ exports.deletePost = async (req, res, next) => {
 
   await post.remove();
   res.status(200).json({ success: true, message: "Xóa bài viết thành công" });
+};
+
+//Get product details
+
+exports.getProductDetails = async (req, res, next) => {
+  const post = await Post.findById(req.params.id);
+
+  if (!post) {
+    return next(new ErrorHander("Bài viết không tồn tại", 404));
+  }
+  res.status(200).json({ success: true, post });
 };
