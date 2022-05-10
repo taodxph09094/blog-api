@@ -6,7 +6,7 @@ module.exports = (err, req, res, next) => {
 
   // Wrong Mongodb Id error
   if (err.name === "CastError") {
-    const message = `Không tìm thấy tài nguyên.  Không hợp lệ tại: ${err.path}`;
+    const message = `Không tìm thấy dữ liệu.  Lỗi hoặc dữ liệu không hợp lệ tại: ${err.path}`;
     err = new ErrorHandler(message, 400);
   }
 

@@ -7,7 +7,7 @@ class ApiFeatures {
   search() {
     const keyword = this.queryStr.keyword
       ? {
-          name: {
+          title: {
             $regex: this.queryStr.keyword,
             $options: "i",
           },
@@ -20,7 +20,8 @@ class ApiFeatures {
 
   filter() {
     const queryCopy = { ...this.queryStr };
-    //   Removing some fields for category
+
+    //   Xóa đối tượng trong danh sách
     const removeFields = ["keyword", "page", "limit"];
 
     removeFields.forEach((key) => delete queryCopy[key]);
