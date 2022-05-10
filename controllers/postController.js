@@ -37,7 +37,7 @@ exports.getAllPosts = catchAsyncErrors(async (req, res, next) => {
 });
 
 // // Get All post (Admin)
-exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+exports.getAdminPosts = catchAsyncErrors(async (req, res, next) => {
   const posts = await Post.find();
 
   res.status(200).json({

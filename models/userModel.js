@@ -5,7 +5,13 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema({
-  name: {
+  userName: {
+    type: String,
+    required: [true, "Vui lòng nhập tên"],
+    maxLength: [30, "Độ dài của tên không quá 30 ký tự"],
+    minLength: [4, "Tên tối thiểu 4 ký tự"],
+  },
+  fullName: {
     type: String,
     required: [true, "Vui lòng nhập tên"],
     maxLength: [30, "Độ dài của tên không quá 30 ký tự"],
@@ -22,6 +28,10 @@ const userSchema = new mongoose.Schema({
     required: [true, "Vui lòng nhập mật khẩu"],
     minLength: [6, "Mật khẩu tối thiểu 6 ký tự"],
     select: false,
+  },
+  phone: {
+    type: Number,
+    required: true,
   },
   avatar: {
     public_id: {
@@ -68,19 +78,19 @@ userSchema.methods.comparePassword = async function (password) {
 };
 
 // Generating Password Reset Token
-userSchema.methods.getResetPasswordToken = function () {
-  // Generating Token
-  const resetToken = crypto.randomBytes(20).toString("hex");
+// userSchema.methods.getResetPasswordToken = function () {
+//   // Generating Token
+//   const resetToken = crypto.randomBytes(20).toString("hex");
 
-  // Hashing and adding resetPasswordToken to userSchema
-  this.resetPasswordToken = crypto
-    .createHash("sha256")
-    .update(resetToken)
-    .digest("hex");
+// Hashing and adding resetPasswordToken to userSchema
+//   this.resetPasswordToken = crypto
+//     .createHash("sha256")
+//     .update(resetToken)
+//     .digest("hex");
 
-  this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
+//   this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
 
-  return resetToken;
-};
+//   return resetToken;
+// };
 
 module.exports = mongoose.model("User", userSchema);
