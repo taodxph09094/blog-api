@@ -63,20 +63,19 @@ const postSchema = mongoose.Schema({
       },
     },
   ],
-  // status: {
-  //   type: Boolean ,
-  //   required:true,
-
-  // },
+  status: {
+    type: Boolean,
+    default: true,
+  },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Guest",
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  // user: {
-  //   type: mongoose.Schema.ObjectId,
-  //   ref: "Guest",
-  //   required: true,
-  // },
 });
 
 module.exports = mongoose.model("Post", postSchema);

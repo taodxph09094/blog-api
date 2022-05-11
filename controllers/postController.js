@@ -4,6 +4,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apifeatures");
 //Create post -- Admin
 exports.createPost = catchAsyncErrors(async (req, res, next) => {
+  req.body.user = req.user.id;
   const post = await Post.create(req.body);
 
   res.status(201).json({
@@ -45,15 +46,6 @@ exports.getAdminPosts = catchAsyncErrors(async (req, res, next) => {
     posts,
   });
 });
-
-//Get all post
-// exports.getAllPost = catchAsyncErrors(async (req, res) => {
-//   const posts = await Post.find();
-//   res.status(201).json({
-//     success: true,
-//     posts,
-//   });
-// });
 
 //Update Post
 
