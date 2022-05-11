@@ -14,11 +14,15 @@ app.use(fileUpload());
 
 const post = require("../routes/postRoute");
 const user = require("../routes/userRoute");
-
+const category = require("../routes/categoryRoute");
+const tag = require("../routes/tagRoute");
 app.use("/api/v1", post);
 
 app.use("/api/v1", user);
 
+app.use("/api/v1", category);
+
+app.use("/api/v1", tag);
 app.use(errorMiddleware);
 //Middleware for error
 
