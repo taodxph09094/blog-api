@@ -26,8 +26,6 @@ exports.getAllTags = catchAsyncErrors(async (req, res, next) => {
 
   apiFeature.pagination(resultPerPage);
 
-  tags = await apiFeature.query;
-
   res.status(200).json({
     success: true,
     tags,

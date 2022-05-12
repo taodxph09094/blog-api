@@ -23,7 +23,7 @@ router
   .route("/category/create")
   .post(isAuthenticatedUser, authorizeRoles("admin", "user"), createCategory);
 router
-  .route("category/:id")
+  .route("/category/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateCategory)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteCategory)
   .get(isAuthenticatedUser, getCategoryDetails);

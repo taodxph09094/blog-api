@@ -17,7 +17,7 @@ router
   .route("/tag/create")
   .post(isAuthenticatedUser, authorizeRoles("admin", "user"), createTag);
 router
-  .route("tag/:id")
+  .route("/tag/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateTag)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteTag)
   .get(isAuthenticatedUser, getTagDetails);
