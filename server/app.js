@@ -16,6 +16,7 @@ const post = require("../routes/postRoute");
 const user = require("../routes/userRoute");
 const category = require("../routes/categoryRoute");
 const tag = require("../routes/tagRoute");
+const sub = require("../routes/subRoute");
 app.use("/api/v1", post);
 
 app.use("/api/v1", user);
@@ -23,6 +24,7 @@ app.use("/api/v1", user);
 app.use("/api/v1", category);
 
 app.use("/api/v1", tag);
+app.use("/api/v1", sub);
 app.use(errorMiddleware);
 //Middleware for error
 

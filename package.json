@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
@@ -27,6 +30,8 @@
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",
     "path": "^0.12.7",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.3.0",
     "validator": "^13.7.0"
   }
 }
