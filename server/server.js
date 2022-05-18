@@ -47,9 +47,7 @@ dotenv.config({ path: "config/config.env" });
 connectDatabase();
 
 const server = app.listen(process.env.PORT, () => {
-  console.log(
-    `server đang hoạt động tại http://localhost:${process.env.PORT}/api-docs/`
-  );
+  console.log(`server đang hoạt động tại http://localhost:${process.env.PORT}`);
 });
 
 //Unhandled Promise Rehection
