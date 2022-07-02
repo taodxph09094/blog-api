@@ -148,7 +148,7 @@ exports.deletePost = catchAsyncErrors(async (req, res, next) => {
 
 //Get product details
 
-exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
+exports.getPostDetails = catchAsyncErrors(async (req, res, next) => {
   const post = await Post.findById(req.params.id);
 
   if (!post) {
