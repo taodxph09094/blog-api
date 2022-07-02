@@ -5,7 +5,10 @@ const {
   createPost,
   updatePost,
   deletePost,
-  getProductDetails,
+  getPostDetails,
+  createPostReview,
+  getPostReviews,
+  deleteReview
 } = require("../controllers/postController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const router = express.Router();
@@ -24,13 +27,13 @@ router
   .route("/post/:id")
   .put(isAuthenticatedUser, authorizeRoles("admin", "user"), updatePost)
   .delete(isAuthenticatedUser, authorizeRoles("admin", "user"), deletePost)
-  .get(getProductDetails);
+  .get(getPostDetails);
 
-router.route("/review").put(isAuthenticatedUser, createProductReview);
+router.route("/review").put(isAuthenticatedUser, createPostReview);
 
 router
   .route("/reviews")
-  .get(getProductReviews)
+  .get(getPostReviews)
   .delete(isAuthenticatedUser, deleteReview);
 
 module.exports = router;
